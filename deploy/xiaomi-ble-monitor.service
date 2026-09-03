@@ -1,0 +1,15 @@
+[Unit]
+Description=Xiaomi BLE Environment Monitor
+After=bluetooth.target
+
+[Service]
+Type=simple
+User=CHANGE_ME
+WorkingDirectory=/opt/xiaomi-ble-environment-monitor
+EnvironmentFile=/opt/xiaomi-ble-environment-monitor/.env
+ExecStart=/opt/xiaomi-ble-environment-monitor/.venv/bin/python -m xiaomi_ble_monitor run
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
